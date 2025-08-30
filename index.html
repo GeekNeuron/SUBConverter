@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Subtitle Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <header>
+                <h1>Professional Subtitle Converter</h1>
+                <p>Drag & drop files or select them to convert.</p>
+            </header>
+
+            <main>
+                <div id="upload-area" class="upload-area">
+                    <input type="file" id="file-input" accept=".srt, .vtt, .ass, .ssa, .sub" multiple>
+                    <label for="file-input" class="file-label">
+                        <span>Choose File(s) or Drag & Drop Here</span>
+                        <small id="file-name">No files selected</small>
+                    </label>
+                </div>
+
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="output-format">Convert to Format:</label>
+                        <select id="output-format">
+                            <option value="srt">SRT (.srt)</option>
+                            <option value="vtt">VTT (.vtt)</option>
+                            <option value="txt">TXT (Plain Text)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group hidden" id="styling-options">
+                        <input type="checkbox" id="remove-styling" checked>
+                        <label for="remove-styling">Remove styling tags (from .ass/.ssa)</label>
+                    </div>
+
+                    <button id="convert-btn" disabled>Convert & Download</button>
+                </div>
+
+                <div id="status-message" class="status"></div>
+            </main>
+        </div>
+
+        <details class="help-section">
+            <summary>About the Formats</summary>
+            <div>
+                <p><strong>SRT (SubRip):</strong> The most common subtitle format. Simple and compatible with almost all video players.</p>
+                <p><strong>VTT (WebVTT):</strong> The standard for web videos (HTML5). Very similar to SRT but with extended capabilities for the web.</p>
+                <p><strong>ASS/SSA (Advanced SubStation Alpha):</strong> An advanced format capable of complex styling, including colors, fonts, and positioning. The "Remove styling" option will strip this data, extracting only the plain text.</p>
+                <p><strong>TXT (Text):</strong> A plain text output containing only the dialogue, with no timestamps or formatting.</p>
+            </div>
+        </details>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
